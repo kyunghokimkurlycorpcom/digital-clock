@@ -1,20 +1,5 @@
-from abc import ABCMeta, abstractmethod
-
-from base.time_source import Subject
-
-
-class TimeSource(metaclass=ABCMeta):
-    @abstractmethod
-    def get_hours(self):
-        pass
-
-    @abstractmethod
-    def get_minutes(self):
-        pass
-
-    @abstractmethod
-    def get_seconds(self):
-        pass
+from base.time_source import TimeSource
+from subject import Subject
 
 
 class MockTimeSource(Subject, TimeSource):

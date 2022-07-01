@@ -1,5 +1,5 @@
 from base.clock_observer import Observer
-from tests.mock_time_source import TimeSource
+from base.time_source import TimeSource
 
 
 class MockTimeSink(Observer):

@@ -1,13 +1,15 @@
-from base.clock_observer import Observer
+from abc import ABCMeta, abstractmethod
 
 
-class Subject:
-    def __init__(self):
-        self.__its_observers = list()
+class TimeSource(metaclass=ABCMeta):
+    @abstractmethod
+    def get_hours(self):
+        pass
 
-    def register_observer(self, observer: Observer):
-        self.__its_observers.append(observer)
+    @abstractmethod
+    def get_minutes(self):
+        pass
 
-    def notify_observers(self):
-        for observer in self.__its_observers:
-            observer.update()
+    @abstractmethod
+    def get_seconds(self):
+        pass
