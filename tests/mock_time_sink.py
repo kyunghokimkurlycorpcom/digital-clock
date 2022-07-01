@@ -1,11 +1,13 @@
-from base.clock_observer import ClockObserver
+from base.clock_observer import Observer
+from tests.mock_time_source import TimeSource
 
 
-class MockTimeSink(ClockObserver):
-    def __init__(self):
+class MockTimeSink(Observer):
+    def __init__(self, source: TimeSource):
         self.__its_hours = None
         self.__its_minutes = None
         self.__its_seconds = None
+        self.__its_source = source
 
     def get_hours(self):
         return self.__its_hours
@@ -16,7 +18,7 @@ class MockTimeSink(ClockObserver):
     def get_seconds(self):
         return self.__its_seconds
 
-    def update(self, hours, minutes, seconds):
-        self.__its_hours = hours
-        self.__its_minutes = minutes
-        self.__its_seconds = seconds
+    def update(self):
+        self.__its_hours = self.__its_source.get_hours()
+        self.__its_minutes = self.__its_source.get_minutes()
+        self.__its_seconds = self.__its_source.get_seconds()

@@ -7,7 +7,7 @@ from tests.mock_time_source import MockTimeSource
 class TestDigitalClock(unittest.TestCase):
     def setUp(self) -> None:
         self.source = MockTimeSource()
-        self.sink = MockTimeSink()
+        self.sink = MockTimeSink(self.source)
         self.source.register_observer(self.sink)
 
     def test_time_change(self):
@@ -22,7 +22,7 @@ class TestDigitalClock(unittest.TestCase):
                 self.assert_sink_equals(self.sink, p1, p2, p3)
 
     def test_multiple_sinks(self):
-        sink2 = MockTimeSink()
+        sink2 = MockTimeSink(self.source)
         self.source.register_observer(sink2)
         self.source.set_time(12, 13, 14)
         self.assert_sink_equals(self.sink, 12, 13, 14)

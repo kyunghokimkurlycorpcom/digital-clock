@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class ClockObserver(metaclass=ABCMeta):
+class Observer(metaclass=ABCMeta):
     @abstractmethod
-    def update(self, hours, minutes, seconds):
+    def update(self):
         pass
