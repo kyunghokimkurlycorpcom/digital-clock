@@ -1,1 +1,1 @@
-# digital_clock
+# Digital Clock example from Agile Software Development
