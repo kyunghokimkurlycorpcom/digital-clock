@@ -1,6 +1,5 @@
 import unittest
 
-from clock_driver import ClockDriver
 from tests.mock_time_sink import MockTimeSink
 from tests.mock_time_source import MockTimeSource
 
@@ -9,7 +8,7 @@ class TestDigitalClock(unittest.TestCase):
     def test_time_change(self):
         td_source = MockTimeSource()
         td_sink = MockTimeSink()
-        sut = ClockDriver(td_source, td_sink)
+        td_source.set_observer(td_sink)
 
         param_list = [
             (3, 4, 5),

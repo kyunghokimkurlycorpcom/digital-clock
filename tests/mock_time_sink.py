@@ -1,7 +1,7 @@
-from base.time_sink import TimeSink
+from base.clock_observer import ClockObserver
 
 
-class MockTimeSink(TimeSink):
+class MockTimeSink(ClockObserver):
     def __init__(self):
         self.__its_hours = None
         self.__its_minutes = None
@@ -16,7 +16,7 @@ class MockTimeSink(TimeSink):
     def get_seconds(self):
         return self.__its_seconds
 
-    def set_time(self, hours, minutes, seconds):
+    def update(self, hours, minutes, seconds):
         self.__its_hours = hours
         self.__its_minutes = minutes
         self.__its_seconds = seconds
