@@ -1,7 +1,7 @@
 import unittest
 
-from tests.mock_time_sink import MockTimeSink
-from tests.mock_time_source import MockTimeSource
+from tests.test_double.mock_time_sink import MockTimeSink
+from tests.test_double.mock_time_source import MockTimeSource
 
 
 class TestDigitalClock(unittest.TestCase):

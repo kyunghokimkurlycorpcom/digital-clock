@@ -1,4 +1,4 @@
-from base.clock_observer import Observer
+from base.observer import Observer
 
 
 class Subject:

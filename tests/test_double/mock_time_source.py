@@ -1,5 +1,5 @@
 from base.time_source import TimeSource
-from subject import Subject
+from base.subject import Subject
 
 
 class MockTimeSource(Subject, TimeSource):
